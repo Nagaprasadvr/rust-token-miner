@@ -14,22 +14,22 @@ pub struct MineResult {
 
 pub struct TokenAccount {
     pub pubkey: String,
-    pub tokens: u64,
+    pub tokens: f32,
 }
 
 impl TokenAccount {
     pub fn create(name: String) -> Self {
         TokenAccount {
             pubkey: reduce_string(&bytes_to_base58(&hash(name))),
-            tokens: 0,
+            tokens: 0.0,
         }
     }
 
-    pub fn get_tokens(&self) -> u64 {
+    pub fn get_tokens(&self) -> f32 {
         return self.tokens;
     }
 
-    pub fn add_tokens(&mut self, amount: u64) {
+    pub fn add_tokens(&mut self, amount: f32) {
         self.tokens += amount;
     }
 }

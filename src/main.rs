@@ -9,7 +9,7 @@ fn main() {
         .format_timestamp_micros()
         .init();
 
-    let difficulty = 10000000;
+    let difficulty = 100000;
     let miner_threads_len = 10;
 
     let mut token_account = TokenAccount::create("Alice".to_string());
@@ -35,7 +35,7 @@ fn main() {
             let elapsed = start.elapsed();
             info!("Time elapsed: {:?}", elapsed);
 
-            token_account.add_tokens(elapsed.as_millis() as u64 * 10);
+            token_account.add_tokens(elapsed.as_millis() as f32 / 10000 as f32);
             stop_signal.store(true, std::sync::atomic::Ordering::Relaxed);
             break;
         }
